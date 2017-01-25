@@ -1,7 +1,7 @@
 {
   "name"            : "Smartbox",
-  "short_name"      : "Smartbox - experience gifts",
-  "description"     : "Smartbox - experience gifts",
+  "short_name"      : "Smartbox",
+  "description"     : "Experience gifts",
   "theme_color"     : "#00aaa0",
   "background_color": "#FFFFFF",
   "start_url"       : "index.html",

@@ -27,8 +27,8 @@ smoothScrolling = function() {
 
     var jump = function(target, options){
         var
-        // _win = window,      // Declared on main.js
-        // _doc = document,    // Declared on main.js
+        _win = window,
+        _doc = document,
         timeStart,
         timeElapsed,
         opt      = {
