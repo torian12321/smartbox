@@ -31,39 +31,33 @@ input,
 textarea{
 	min-width : 200px;
 	padding   : 5px;
-	border    : @color_main 2px solid;
-	color     : @color_main;
+	color     : @fontColor_grey;
+	border    : @border;
 	background: fadeout(@color_sec, 80%);
 
 	.rounded(@BRadious);
-	.transition(0.2s);
+	.transition(@property: border; @time: .2s);
 	&:hover,
 	&:focus{
+		color     : @color_main;
 		background: fadeout(@color_sec, 50%);
 	}
 	&:focus{
-		@shadow: 0px 0px 30px -2px @color_main, inset 0 0 .25em @color_main;
-		.shadow(@shadow);
+		border-color: @color_main;
 	}
 
 	&.error{
 		color       : fadeout(@colorState_danger, 50%);
 		border-color: fadeout(@colorState_danger, 50%);
-		.shadow(0px 0px 30px -2px @colorState_danger);
 	}
 	&.success{
 		color       : @colorState_success;
 		border-color: @colorState_success;
-		&:focus{
-			@shadow: 0px 0px 30px -2px @colorState_success, inset 0 0 .25em @colorState_success;
-			.shadow(@shadow);
-		}
 	}
 	&:disabled{
 		background  : @colorState_disable;
 		color       : darken(@colorState_disable, 20%);
 		border-color: darken(@colorState_disable, 20%);
-		.shadow(none);
 	}
 	&:-webkit-autofill,
 	&:-webkit-autofill:focus{
@@ -76,9 +70,8 @@ textarea{
 ::-moz-placeholder 			{ .placeholder(); }
 :-ms-input-placeholder 		{ .placeholder(); }
 .placeholder(){
-	color      : @color_main;
+	color      : fadeout(@fontColor_grey, 40%);
 	text-shadow: 0 0 .125em transparent;
-	.transition(0.2);
 	input:focus&{
 		opacity: .5;
 	}

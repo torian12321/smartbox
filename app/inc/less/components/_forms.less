@@ -131,45 +131,43 @@
 	input:checked + label:after      {background: @themeColor_1; }
 
 
-	& when (@firstLoad = true){
-		label{
-			position    : relative;
-			display     : block;
-			height      : @size;
-			cursor      : pointer;
-			padding-left: @size + 5px;
-			line-height : @size;
-			&:after,
-			&:before{
-				content : '';
-				position: absolute;
-				top     : 0;
-				left    : 0;
-				display : block;
-				.rounded(50%);
-			}
-			&:before{
-				height      : @size;
-				width       : @size;
-				border-width: @border;
-				border-style: solid;
-				box-sizing  : border-box;
-			}
-			&:after{
-				width : 0;
-				height: 0;
-				margin: @size / 2;
-				.transition(@time: 0.3s);
-			}
+	label{
+		position    : relative;
+		display     : block;
+		height      : @size;
+		cursor      : pointer;
+		padding-left: @size + 5px;
+		line-height : @size;
+		&:after,
+		&:before{
+			content : '';
+			position: absolute;
+			top     : 0;
+			left    : 0;
+			display : block;
+			.rounded(50%);
 		}
-		input{
-			display: none;
-					  + label:hover:after,
-			&:checked + label:after{
-				margin: (@size - @bullet) / 2;
-				width : @bullet;
-				height: @bullet;
-			}
+		&:before{
+			height      : @size;
+			width       : @size;
+			border-width: @border;
+			border-style: solid;
+			box-sizing  : border-box;
+		}
+		&:after{
+			width : 0;
+			height: 0;
+			margin: @size / 2;
+			.transition(@time: 0.3s);
+		}
+	}
+	input{
+		display: none;
+				  + label:hover:after,
+		&:checked + label:after{
+			margin: (@size - @bullet) / 2;
+			width : @bullet;
+			height: @bullet;
 		}
 	}
 }
@@ -199,48 +197,45 @@
 	@bullet_ini: @size * 0;
 	@bullet_end: @size * 0.7;
 
-	label:before{border-color: @colorState_disable}
-	label:after {background  : @themeColor_1}
-
-	& when (@firstLoad = true){
-		label{
-			position: relative;
+	label{
+		position: relative;
+		display : block;
+		width   : @size;
+		height  : @size;
+		cursor  : pointer;
+		&:after,
+		&:before{
+			content : '';
+			position: absolute;
 			display : block;
-			width   : @size;
-			height  : @size;
-			cursor  : pointer;
-			&:after,
-			&:before{
-				content : '';
-				position: absolute;
-				display : block;
-				.rounded(50%);
-			}
-			&:before{
-				top         : 0;
-				left        : 0;
-				height      : @size;
-				width       : @size;
-				border-width: @border;
-				border-style: solid;
-				box-sizing  : border-box;
-			}
-			&:after{
-				top   : 50%;
-				left  : 50%;
-				margin: (-@bullet_ini / 2);
-				width : @bullet_ini;
-				height: @bullet_ini;
-				.transition(@time: 0.2s);
-			}
+			.rounded(50%);
 		}
-		input{
-			display: none;
-			&:checked + label:after{
-				margin: (-@bullet_end / 2);
-				width : @bullet_end;
-				height: @bullet_end;
-			}
+		&:before{
+			top         : 0;
+			left        : 0;
+			height      : @size;
+			width       : @size;
+			border-width: @border;
+			border-style: solid;
+			box-sizing  : border-box;
+			border-color: @colorState_disable;
+		}
+		&:after{
+			top       : 50%;
+			left      : 50%;
+			margin    : (-@bullet_ini / 2);
+			width     : @bullet_ini;
+			height    : @bullet_ini;
+			background: @themeColor_1;
+			.transition(@time: 0.2s);
+		}
+	}
+	input{
+		display: none;
+		&:checked + label:after{
+			margin: (-@bullet_end / 2);
+			width : @bullet_end;
+			height: @bullet_end;
 		}
 	}
 }
@@ -267,46 +262,42 @@
 .form-check-icon{
 	@size : @inputHeight;
 
-	& when (@fontAwesome = true) {
-		label:before{color: @colorState_disable}
-		label:after {color: @themeColor_1}
 
-		& when (@firstLoad = true){
-			label{
-				position       : relative;
-				display        : block;
-				width          : @size;
-				height         : @size;
-				cursor         : pointer;
-				transform-style: preserve-3d;
-				.transition(@property: transform;);
-				&:after,
-				&:before{
-					position           : absolute;
-					top                : 0;
-					left               : 0;
-					bottom             : 0;
-					right              : 0;
-					text-align         : center;
-					display            : block;
-					font-size          : @size;
-					backface-visibility: hidden;
-					.font_icons();
-				}
-				&:before{
-					content: "\f057";
-				}
-				&:after{
-					content  : "\f058";
-					transform: translate3d(0, 0, 0) rotateY(180deg);
-				}
-			}
-			input{
-				display: none;
-				&:checked + label{
-					transform: translate3d(0, 0, 0) rotateY(180deg);
-				}
-			}
+	label{
+		position       : relative;
+		display        : block;
+		width          : @size;
+		height         : @size;
+		cursor         : pointer;
+		transform-style: preserve-3d;
+		.transition(@property: transform;);
+		&:after,
+		&:before{
+			position           : absolute;
+			top                : 0;
+			left               : 0;
+			bottom             : 0;
+			right              : 0;
+			text-align         : center;
+			display            : block;
+			font-size          : @size;
+			backface-visibility: hidden;
+			.font_icons();
+		}
+		&:before{
+			content: "\f057";
+			color  : @colorState_disable;
+		}
+		&:after{
+			content  : "\f058";
+			color    : @themeColor_1;
+			transform: translate3d(0, 0, 0) rotateY(180deg);
+		}
+	}
+	input{
+		display: none;
+		&:checked + label{
+			transform: translate3d(0, 0, 0) rotateY(180deg);
 		}
 	}
 }

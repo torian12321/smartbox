@@ -151,72 +151,70 @@
 	@height    : 32px;
 
 
-	& when (@firstLoad = true){
-		position   : relative;
-		width      : 100%;
-		height     : @height;
-		overflow   : hidden;
-		font-size  : @height / 2;
-		line-height: @height;
-		.font-bold();
-		.rounded(@height);
-		&.bordered{
-			border     : solid 2px;
-			line-height: @height - 2px;
-		}
-		label{
-			position  : absolute;
-			top       : 0;
-			left      : 0;
-			height    : 100%;
-			width     : 100%;
-			padding   : 0 20px;
-			text-align: right;
-		}
-		.bar{
-			height     : 100%;
-			padding    : 0 20px;
-			text-align : left;
-            .transition(width);
-			.transition(background);
-		}
+	position   : relative;
+	width      : 100%;
+	height     : @height;
+	overflow   : hidden;
+	font-size  : @height / 2;
+	line-height: @height;
+	.font-bold();
+	.rounded(@height);
+	&.bordered{
+		border     : solid 2px;
+		line-height: @height - 2px;
+	}
+	label{
+		position  : absolute;
+		top       : 0;
+		left      : 0;
+		height    : 100%;
+		width     : 100%;
+		padding   : 0 20px;
+		text-align: right;
+	}
+	.bar{
+		height     : 100%;
+		padding    : 0 20px;
+		text-align : left;
+        .transition(width);
+		.transition(background);
+	}
 
-		&.underline{
-			overflow  : initial;
+	&.underline{
+		overflow  : initial;
+		background: transparent !important;
+		.rounded(0);
+		.bar{
+			height    : @height;
 			background: transparent !important;
 			.rounded(0);
-			.bar{
-				height    : @height;
-				background: transparent !important;
-				.rounded(0);
-			}
 		}
-		&.pb-right,
-		&.pb-left{
-			border-bottom: 0 !important;
-			.rounded(0);
-			.bar{
-				position: relative;
-				height  : 100%;
-			}
-			label{
-				.font-light();
-			}
-			&:before{
-				content: none;
-			}
+	}
+	&.pb-right,
+	&.pb-left{
+		border-bottom: 0 !important;
+		.rounded(0);
+		.bar{
+			position: relative;
+			height  : 100%;
 		}
+		label{
+			.font-light();
+		}
+		&:before{
+			content: none;
+		}
+	}
 
-		&.pb-left .bar{
-			.rounded(0 @height @height 0);
-		}
-		&.pb-right .bar{
-			float     : right;
-			text-align: right;
-			.rounded(@height 0 0 @height);
-			label{
-				text-align: left;
-			}
+	&.pb-left .bar{
+		.rounded(0 @height @height 0);
+	}
+	&.pb-right .bar{
+		float     : right;
+		text-align: right;
+		.rounded(@height 0 0 @height);
+		label{
+			text-align: left;
 		}
 	}
 

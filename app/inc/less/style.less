@@ -34,8 +34,6 @@
 @import "components/_loading.less";
 @import "components/_accordion.less";
 @import "components/_breadcrumbs.less";
-@import "components/_timeLines.less";
-@import "components/_toast.less";
 
 
 
@@ -69,8 +67,5 @@
 //------------------
 .libraries();
 .libraries(){
-	& when (@firstLoad = true){
-		@import "libs/_font-awesome.less";
-		@import "libs/_waves.less";
-	}
+	@import "libs/_font-awesome.less";
 }

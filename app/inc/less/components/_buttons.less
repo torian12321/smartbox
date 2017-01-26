@@ -3,140 +3,81 @@
 ```
 	<button class="btn">Button</button>
 	<a href="#" class="btn">Link</a>
-```
-
-## Buttons - Icons
-```
-	<button class="btn i i-mail">Mail</button>
-	<button class="btn i i-next">Next</button>
-	<button class="btn i i-download">Download</button>
-	<button class="btn i i-refresh">Refresh</button>
-	<button class="btn i i-options">Refresh</button>
-	<button class="btn i i-cart">Refresh</button>
+	<button class="btn btn-large">Large button</button>
 ```
 
 ## Buttons - Colors
 ```
-	<button class="btn btn-green">Green</button>
+	<button class="btn btn-main">Main</button>
+	<button class="btn btn-sec">Sec</button>
 	<button class="btn btn-red">Red</button>
-	<button class="btn btn-blue">Blue</button>
-	<button class="btn btn-white">White</button>
-	<button class="btn btn-grey">Grey</button>
-	<button class="btn btn-black">Black</button>
+	<button class="btn btn-orange">Orange</button>
+	<button class="btn btn-yellow">Yellow</button>
+	<button class="btn btn-purple">Purple</button>
 ```
 
 ## Buttons - Status
 ```
 	<button class="btn btn-main">Default</button>
-	<button class="btn btn-sec">Sec</button>
 	<button class="btn btn-success">Success</button>
 	<button class="btn btn-danger">Danger</button>
 	<button class="btn btn-warning">Warning</button>
-	<button class="btn btn-large">Large</button>
 	<button class="btn" disabled="Disabled">Disabled</button>
 ```
 
-## Buttons 3D
-```
-	<button class="btn btn-3D">Default</button>
-	<button class="btn btn-3D btn-sec">Secundary</button>
-	<button class="btn btn-3D btn-warning">Warning</button>
-	<button class="btn btn-3D btn-large">Large</button>
-	<button class="btn btn-3D" disabled="Disabled">Disabled</button>
-```
 */
 
-//TODO -> change margins+paddings+fonts to em
 
-@3D_deep  : 4px;
 @padding_v: 8px;
 @padding_h: 24px;
-@iconSize : 14px;
 
 .btn{
-	& when (@firstLoad = true){
-		position       : relative;
-		min-width      : 100px;
-		padding        : @padding_v @padding_h;
-		font-size      : 14px;
-		cursor         : pointer;
-		text-transform : uppercase;
-		text-decoration: none;
-		outline        : none !important;
-		letter-spacing : 0.8px;
+	position       : relative;
+	min-width      : 100px;
+	padding        : @padding_v @padding_h;
+	font-size      : 14px;
+	cursor         : pointer;
+	text-transform : uppercase;
+	text-decoration: none;
+	outline        : none !important;
+	letter-spacing : 0.8px;
 
-		.rounded(@BRadious);
-		.transition(@time:0.20s);
+	.rounded(@BRadious);
+	.transition(@time:0.20s);
 
-		// Status
-		.btn_palette();
-		&:active,
-		&.active{
-			.shadow(0 2px 6px 1px rgba(0,0,0,0.3))
-		}
-		&:disabled,
-		&.disabled,
-	  	&[disabled]{
-			background  : @colorState_disable !important;
-			border-color: @colorState_disable !important;
-			color       : @white;
-			box-shadow  : none !important;
-			cursor      : no-drop;
-			.opacity(0.8);
-		}
+	// Status
+	.btn_palette();
+	&:active,
+	&.active{
+		.shadow(0 2px 6px 1px rgba(0,0,0,0.3))
+	}
+	&:disabled,
+	&.disabled,
+  	&[disabled]{
+		background  : @colorState_disable !important;
+		border-color: @colorState_disable !important;
+		color       : @white;
+		box-shadow  : none !important;
+		cursor      : no-drop;
+		.opacity(0.8);
+	}
 
-		// Options
-		&.btn-large{
-			min-width: 200px;
-		}
-		&.btn-auto{
-			min-width: auto;
-		}
-		&.btn-3D{
-			top         : 0;
-			position    : relative;
-			border-width: 0 !important;
-			&:active,
-			&.active{
-				top: @3D_deep;
-			}
-		}
-
-		// Icons
-		& when (@fontAwesome = true) {
-			&.i{
-				padding-right: @padding_h + @iconSize;
-				&:before{
-					position   : absolute;
-					right      : @padding_h / 2;
-					top        : @padding_v;
-					text-align : center;
-					font-size  : @iconSize;
-					line-height: @iconSize;
-					.font_icons();
-				}
-				&.i-mail:before    { content: '\f0e0'; }
-				&.i-next:before    { content: '\f061'; }
-				&.i-download:before{ content: '\f019'; }
-				&.i-refresh:before { content: '\f021'; }
-				&.i-options:before { content: '\f085'; }
-				&.i-cart:before    { content: '\f07a'; }
-			}
-		}
+	// Options
+	&.btn-large{
+		min-width: 200px;
+	}
+	&.btn-auto{
+		min-width: auto;
 	}
 
 	// Styles
-	&.btn-main   { .btn_palette(); }
-	&.btn-sec    { .btn_palette(@themeColor_2; @white;);}
-    &.btn-green  { .btn_palette(@green;        @white;); }
-	&.btn-red    { .btn_palette(@red;          @white;); }
-	&.btn-orange { .btn_palette(@orange;       @white); }
-	&.btn-white  { .btn_palette(@white;        @themeColor_1); }
+	&.btn-main   { .btn_palette(@themeColor_1;); }
+	&.btn-sec    { .btn_palette(@themeColor_2;);}
+	&.btn-red    { .btn_palette(@red;); }
+	&.btn-orange { .btn_palette(@orange;); }
+	&.btn-yellow { .btn_palette(@yellow;); }
+	&.btn-purple { .btn_palette(@purple;); }
 
-    &.btn-black  { .btn_palette(@black;        @white); }
-	&.btn-grey   { .btn_palette(@grey;         @white); }
-	&.btn-blue   { .btn_palette(@blue;         @white); }
-    
     &.btn-info   { .btn_palette(@colorState_info;    @white); }
     &.btn-success{ .btn_palette(@colorState_success; @white); }
     &.btn-warning{ .btn_palette(@colorState_warning; @white); }
@@ -145,36 +86,19 @@
 
 
 // Mixin for colors
-.btn_palette(@color-main: @themeColor_1; @color-sec: @white;){
-	color     : @color-sec;
-	background: @color-main;
-	border    : 1px @color-sec solid;
+.btn_palette(
+	@color-main: @themeColor_2;
+	@color-sec : @white;
+	@color-txt : @fontColor_grey;)
+{
+	background: @color-sec;
+	color     : @color-txt;
+	border    : @color-txt 1px solid;
 
 	&:hover,
 	&:focus{
-		color       : @color-main;
-		background  : @color-sec;
-		border-color: @color-main;
-
-		& when (@color-sec = @white) {
-			color: @color-main;
-		}
-	}
-
-	&.btn-3D{
-		box-shadow  : 0px @3D_deep 0px 0px darken(@color-main, 15%);
-
-		& when (@color-main = @black) {
-			background: lighten(@black, 25%);
-		}
-		&:hover,
-		&:focus{
-			color     : @color-sec;
-			background: darken(@color-main, 10%);
-		}
-		&:active,
-		&.active{
-			box-shadow: 0px 0px 0px 0px darken(@color-main, 15%);
-		}
+		color       : @color-sec;
+		background  : @color-main;
+		border-color: @color-sec;
 	}
 }
