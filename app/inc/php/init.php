@@ -11,7 +11,6 @@ header('content-type: text/html; charset=utf-8');
 
 // Include the following dependencies.
 require_once __dir__ . '/config.php';
-require_once __dir__ . '/func.php';
 require_once __dir__ . '/components.php';
 
 ?>

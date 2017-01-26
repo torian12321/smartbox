@@ -22,11 +22,6 @@ $GLOBALS['imgDir']      = $GLOBALS['incDir'] . 'img/';
 $GLOBALS['imgDef']      = $GLOBALS['imgDir'] . 'default/';
 $GLOBALS['iconsDir']    = $GLOBALS['imgDir'] . 'icons/';
 
-$GLOBALS['dateFormat']  = 'F jS - Y';
 $GLOBALS['themeColor']  = $manifest_data['theme_color'];
 
-//Contact
-//$GLOBALS['contact_phone']   = '';
-//$GLOBALS['contact_twitter'] = '';
-//$GLOBALS['contact_mail']    = '';
 ?>
