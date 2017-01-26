@@ -6,4 +6,5 @@
 	</div>
 </div>
 
+<?php require_once __dir__ . '/_footerHTML.php'; ?>
 <?php require_once __dir__ . '/_footer.php'; ?>
