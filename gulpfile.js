@@ -34,7 +34,6 @@ gulp.task('build-all', ['build-dist']);
 
 // Watch tasks
 gulp.task('watch', function(){
-	gulp.watch(paths.app + paths.less  + 'themes/*.less', ['less_themes']);
 	gulp.watch(paths.app + paths.less  + '**/*.less'    , ['less_main']);
 	gulp.watch(paths.app + paths.jsApp + '**/*.js'      , ['js_app']);
 });
@@ -55,6 +54,8 @@ gulp.task('scripts', ['js_libs', 'js_app']);
 	gulp.task('js_libs', function () {
 		return gulp.src([
 				paths.app + paths.jsLib + 'jquery-v3.0.0.js',
+				//paths.app + paths.jsLib + 'html5-v3.7.3.js',
+				//paths.app + paths.jsLib + 'knockout.js',
 				//paths.app + paths.jsLib + 'angular-v1.5.6.js',
 				//paths.app + paths.jsLib + 'angular-route-1.5.6.js'
 			])
@@ -74,7 +75,6 @@ gulp.task('scripts', ['js_libs', 'js_app']);
 // Styles Tasks
 gulp.task('styles', function () {
 	gulp.start('less_main');
-	gulp.start('less_themes');
 	});
 	gulp.task('less_main', function(){
 		return gulp.src(paths.app + paths.less + 'style.less')
@@ -83,14 +83,6 @@ gulp.task('styles', function () {
 			.pipe(cleanCSS({compatibility: 'ie8'}))
 			.on('error', errorLog)
 			.pipe(gulp.dest(paths.app + paths.css));
-	});
-	gulp.task('less_themes', function(){
-		return gulp.src(paths.app + paths.less + 'themes/*.less')
-			.pipe(less())
-			.pipe(prefix('last 2 versions'))
-			.pipe(cleanCSS({compatibility: 'ie8'}))
-			.on('error', errorLog)
-			.pipe(gulp.dest(paths.app + paths.css  + 'themes/'));
 	});
 	gulp.task('styles-remove', function(){
 		return gulp.src(paths.app + paths.css, {read: false})
@@ -128,7 +120,7 @@ gulp.task('build-dist', ['build_dist-remove'], function(){
 	gulp.task('build_dist-php2html', function(){
 		return gulp.src(paths.app + '*.php')
 		    .pipe(php2html())
-		    .pipe(htmlmin({collapseWhitespace: true}))
+		    //.pipe(htmlmin({collapseWhitespace: true}))
 		    .on('error', errorLog)
 		    .pipe(gulp.dest(paths.dist ))
 	});
