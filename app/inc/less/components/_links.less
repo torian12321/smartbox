@@ -7,7 +7,7 @@
 ```
 */
 .link{
-	color : @themeColor_1;
+	color : @fontColor_grey;
 	cursor: pointer;
 	&:hover{
 		color          : @themeColor_2;
@@ -28,21 +28,14 @@
 
 		position: relative;
 		&:after{
+			content    : '\f105';
 			position   : absolute;
+			top        : 1px;
 			right      : -@arrow_size * 0.75;
 			line-height: @arrow_size;
 			font-size  : @arrow_size;
 			.transition();
-
-			& when (@fontAwesome = true) {
-				content: '\f105';
-				top    : 1px;
-				.font_icons();
-			}
-			& when (@fontAwesome = false) {
-				content: '>';
-				top    : 3px;
-			}
+			.font_icons();
 		}
 		&:hover:after{
 			right: -@arrow_size * 1.5;

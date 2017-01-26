@@ -21,19 +21,17 @@
 	text-align : center;
 	color      : @color;
 	line-height: 1.75;
-	& when (@fontAwesome = true) {
-		&:before,
-		&:after{
-			content   : '';
-			position  : absolute;
-			top       : -@iconSize * 0.5;
-			font-size : @iconSize;
-			color     : @color;
-			.font_icons();
-		}
-		&:before{ content: '\f10d';	left : 0;}
-		&:after { content: '\f10e'; right: 0;}
+	&:before,
+	&:after{
+		content   : '';
+		position  : absolute;
+		top       : -@iconSize * 0.5;
+		font-size : @iconSize;
+		color     : @color;
+		.font_icons();
 	}
+	&:before{ content: '\f10d';	left : 0;}
+	&:after { content: '\f10e'; right: 0;}
 	.author{
 		display   : block;
 		margin-top: 10px;

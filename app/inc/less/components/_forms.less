@@ -625,21 +625,19 @@
 		padding: 0 20px 0 10px;
 	}
 	// Arrow
-	& when (@fontAwesome = true){
-		.arrow:after{
-			content       : '\f107';
-			position      : absolute;
-			top           : 0;
-			right         : 10px;
-			bottom        : 0;
-			font-size     : 20px;
-			color         : @fontColor_white;
-			pointer-events: none;
-			.font_icons()
-		}
-		select:hover:focus + .arrow:after{
-			content: '\f106';
-		}
+	.arrow:after{
+		content       : '\f107';
+		position      : absolute;
+		top           : 0;
+		right         : 10px;
+		bottom        : 0;
+		font-size     : 20px;
+		color         : @fontColor_white;
+		pointer-events: none;
+		.font_icons()
+	}
+	select:hover:focus + .arrow:after{
+		content: '\f106';
 	}
 }
 
